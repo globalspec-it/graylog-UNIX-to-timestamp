@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 graylog-UNIX-to-timestamp
 =========================
 
@@ -16,3 +17,6 @@ restores the original timestamp based on the web hit vs. when the log was fetche
 This example is setup for a UNIX timestamp that only contains only seconds precision.  If the source UNIX time
 is for milliseconds and you want to keep that level of precision you will need to make changes to restore that starting
 with eliminating the "substring(ts, 0, -3);"
+=======
+# graylog-UNIX-to-timestamp
+>>>>>>> 456313c640bdb3cd3d900d32efe58643e296bda8
