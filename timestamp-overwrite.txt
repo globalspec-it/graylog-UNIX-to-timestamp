@@ -1,0 +1,7 @@
+rule "overwrite timestamp with requestTimestamp"
+when
+  has_field("requestTimestamp")
+then
+  let ts = flex_parse_date(to_string($message.requestTimestamp));
+  set_field("timestamp", ts);
+end
