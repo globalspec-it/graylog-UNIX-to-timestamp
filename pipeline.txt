@@ -1,0 +1,16 @@
+rule "UNIX timestamp"
+when
+  has_field("requestStartDateTime")
+then
+  // UNIX epoch
+  let epoch = parse_date("1970-01-01T00:00:00.000Z", "yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+  let ts = to_string($message.requestStartDateTime);
+  let ts_sec = substring(ts, 0, -3);
+  let ts_sec_long = seconds(to_long(ts_sec));
+  set_field("timestamp", epoch + ts_sec_long);
+    //debug fields
+    //set_field("debugRTS_epoch", epoch);
+    //set_field("debugRTS_ts_sec_long", ts_sec_long);
+    //set_field("debugRTS_ts_sec", ts_sec);
+    //set_field("debugRTS_ts_str", ts);
+end
